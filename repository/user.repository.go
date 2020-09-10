@@ -1,67 +1,71 @@
 package repository
 
 import (
+	"golang.org/x/crypto/bcrypt"
 	"hology/database"
 	"hology/models"
 	"hology/models/user"
+	"time"
 )
 
-func FetchAllUser() (models.Response, error) {
-	var obj user.User
-	var arrobj []user.User
-	var res models.Response
+func FetchAllUser() (result models.Response, code int, error error) {
+	db := database.CreateConn()
 
-	con := database.CreateConn()
-
-	results, err := con.Query("SELECT * FROM users ORDER BY user_id")
-	defer results.Close()
-
-	if err != nil {
-		return res, err
-	}
-
-	for results.Next() {
-		err = results.Scan(&obj.UserId, &obj.InstitutionId, &obj.UserFullname, &obj.UserEmail, &obj.UserName, &obj.UserPassword, &obj.UserGender, &obj.UserBirthdate, &obj.CreatedAt, &obj.UpdatedAt, &obj.TeamId)
-		if err != nil {
-			return res, err
-		}
-
-		arrobj = append(arrobj, obj)
-	}
+	users := []user.User{}
+	db.Find(&users)
 
 	return models.Response{
 		Status:  true,
 		Message: "Success fetch users",
-		Data:    arrobj,
-	}, nil
+		Data:    users,
+	}, 200, nil
 }
 
-func GetUserDetail(email, password string) (models.Response, error) {
-	var obj user.User
-	var arrobj []user.User
-	var res models.Response
+func GetUserDetail(email, password string) (result models.Response, code int, error error) {
+	db := database.CreateConn()
 
-	con := database.CreateConn()
+	u := user.User{}
+	db.Where(&user.User{UserEmail: email}).Find(&u)
 
-	results, err := con.Query("SELECT * FROM users WHERE user_email = " + email)
-	defer results.Close()
+	hp, _ := Hash(password)
 
-	if err != nil {
-		return res, err
-	}
-
-	for results.Next() {
-		err = results.Scan(&obj.UserId, &obj.InstitutionId, &obj.UserFullname, &obj.UserEmail, &obj.UserName, &obj.UserPassword, &obj.UserGender, &obj.UserBirthdate, &obj.CreatedAt, &obj.UpdatedAt, &obj.TeamId)
-		if err != nil {
-			return res, err
-		}
-
-		arrobj = append(arrobj, obj)
+	if !IsSame(u.UserPassword, hp) {
+		return models.Response{
+			Status:  false,
+			Message: "Password is wrong!",
+			Data:    hp,
+		}, 400, nil
 	}
 
 	return models.Response{
 		Status:  true,
-		Message: "Success auth users",
-		Data:    arrobj,
-	}, nil
+		Message: "Success get user",
+		Data:    u,
+	}, 200, nil
+}
+
+func CreateUser(usr user.User) (result models.Response, code int, error error) {
+	db := database.CreateConn()
+
+	hash, _ := Hash(usr.UserPassword)
+	usr.UserPassword = hash
+	usr.CreatedAt = time.Now()
+	usr.UpdatedAt = time.Now()
+
+	db.Create(usr)
+
+	return models.Response{
+		Status:  true,
+		Message: "Success create user",
+		Data:    usr,
+	}, 200, nil
+}
+
+func Hash(str string) (string, error) {
+	hashed, err := bcrypt.GenerateFromPassword([]byte(str), bcrypt.DefaultCost)
+	return string(hashed), err
+}
+
+func IsSame(str string, hashed string) bool {
+	return bcrypt.CompareHashAndPassword([]byte(hashed), []byte(str)) == nil
 }

@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c0bb6cb-ba92-4ffc-9c01-88f36480ec8c" name="Default Changelist" comment="" />
+    <list default="true" id="8c0bb6cb-ba92-4ffc-9c01-88f36480ec8c" name="Default Changelist" comment="+ init project basic&#10;+ add routes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gopkg.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Gopkg.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user.controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user/user.model.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user/user.model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/user.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/user.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +33,9 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.15/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoDepProject">
     <integration-enabled>true</integration-enabled>
     <exec-path>/usr/local/bin/dep</exec-path>
@@ -23,12 +44,14 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1h3rNF1wRPqVO2SOxtrv8tSH2Ya" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="go" />
@@ -64,6 +87,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="+ init project basic&#10;+ add routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ init project basic&#10;+ add routes" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="831" y="469" key="#Dep" timestamp="1599250629138">
       <screen x="0" y="25" width="1920" height="978" />
@@ -81,29 +120,45 @@
       <screen x="0" y="25" width="1920" height="978" />
     </state>
     <state x="1075" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.978@0.25.1920.978" timestamp="1599283578644" />
-    <state width="814" height="230" key="GridCell.Tab.0.bottom" timestamp="1599284380918">
+    <state x="987" y="25" key="CommitChangelistDialog2" timestamp="1599516818685">
       <screen x="0" y="25" width="1920" height="978" />
     </state>
-    <state width="814" height="230" key="GridCell.Tab.0.bottom/0.25.1920.978@0.25.1920.978" timestamp="1599284380918" />
-    <state width="814" height="230" key="GridCell.Tab.0.center" timestamp="1599284380917">
+    <state x="987" y="25" key="CommitChangelistDialog2/0.25.1920.978@0.25.1920.978" timestamp="1599516818685" />
+    <state width="1304" height="229" key="GridCell.Tab.0.bottom" timestamp="1599707864892">
       <screen x="0" y="25" width="1920" height="978" />
     </state>
-    <state width="814" height="230" key="GridCell.Tab.0.center/0.25.1920.978@0.25.1920.978" timestamp="1599284380917" />
-    <state width="814" height="230" key="GridCell.Tab.0.left" timestamp="1599284380917">
+    <state width="1304" height="229" key="GridCell.Tab.0.bottom/0.25.1920.978@0.25.1920.978" timestamp="1599707864892" />
+    <state width="1304" height="229" key="GridCell.Tab.0.center" timestamp="1599707864891">
       <screen x="0" y="25" width="1920" height="978" />
     </state>
-    <state width="814" height="230" key="GridCell.Tab.0.left/0.25.1920.978@0.25.1920.978" timestamp="1599284380917" />
-    <state width="814" height="230" key="GridCell.Tab.0.right" timestamp="1599284380918">
+    <state width="1304" height="229" key="GridCell.Tab.0.center/0.25.1920.978@0.25.1920.978" timestamp="1599707864891" />
+    <state width="1304" height="229" key="GridCell.Tab.0.left" timestamp="1599707864890">
       <screen x="0" y="25" width="1920" height="978" />
     </state>
-    <state width="814" height="230" key="GridCell.Tab.0.right/0.25.1920.978@0.25.1920.978" timestamp="1599284380918" />
+    <state width="1304" height="229" key="GridCell.Tab.0.left/0.25.1920.978@0.25.1920.978" timestamp="1599707864890" />
+    <state width="1304" height="229" key="GridCell.Tab.0.right" timestamp="1599707864891">
+      <screen x="0" y="25" width="1920" height="978" />
+    </state>
+    <state width="1304" height="229" key="GridCell.Tab.0.right/0.25.1920.978@0.25.1920.978" timestamp="1599707864891" />
+    <state x="1255" y="180" key="RollbackChangesDialog" timestamp="1599516724234">
+      <screen x="0" y="25" width="1920" height="978" />
+    </state>
+    <state x="1255" y="180" key="RollbackChangesDialog/0.25.1920.978@0.25.1920.978" timestamp="1599516724234" />
     <state x="481" y="100" key="SettingsEditor" timestamp="1599283632831">
       <screen x="0" y="25" width="1920" height="978" />
     </state>
     <state x="481" y="100" key="SettingsEditor/0.25.1920.978@0.25.1920.978" timestamp="1599283632831" />
-    <state x="1108" y="34" width="734" height="969" key="find.popup" timestamp="1599281347061">
+    <state x="920" y="215" key="Vcs.Push.Dialog.v2" timestamp="1599517023103">
       <screen x="0" y="25" width="1920" height="978" />
     </state>
-    <state x="1108" y="34" width="734" height="969" key="find.popup/0.25.1920.978@0.25.1920.978" timestamp="1599281347061" />
+    <state x="920" y="215" key="Vcs.Push.Dialog.v2/0.25.1920.978@0.25.1920.978" timestamp="1599517023103" />
+    <state x="1024" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599707494038">
+      <screen x="0" y="25" width="1920" height="978" />
+    </state>
+    <state x="1024" y="409" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1920.978@0.25.1920.978" timestamp="1599707494038" />
+    <state x="1108" y="34" width="734" height="969" key="find.popup" timestamp="1599705570410">
+      <screen x="0" y="25" width="1920" height="978" />
+    </state>
+    <state x="1108" y="34" width="734" height="969" key="find.popup/0.25.1920.978@0.25.1920.978" timestamp="1599705570410" />
   </component>
 </project>

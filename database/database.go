@@ -1,29 +1,25 @@
 package database
 
 import (
-	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
+	"fmt"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"hology/config"
 )
 
-var db *sql.DB
+var db *gorm.DB
 var err error
 
 func Init() {
-	conf := config.GetConfig()
-
-	conn := conf.DB_USERNAME + ":" + conf.DB_PASSWORD + "@tcp(" + conf.DB_HOST + ":" + conf.DB_PORT + ")/" + conf.DB_NAME
-
-	db, err = sql.Open("mysql", conn)
+	configuration := config.GetConfig()
+	connect_string := fmt.Sprintf("%s:%s@/%s?charset=utf8&parseTime=True&loc=Local", configuration.DB_USERNAME, configuration.DB_PASSWORD, configuration.DB_NAME)
+	db, err = gorm.Open("mysql", connect_string)
+	// defer db.Close()
 	if err != nil {
-		panic("connection error")
-	}
-
-	if db.Ping() != nil {
-		panic("connection failed")
+		panic("DB Connection Error")
 	}
 }
 
-func CreateConn() *sql.DB {
+func CreateConn() *gorm.DB {
 	return db
 }
